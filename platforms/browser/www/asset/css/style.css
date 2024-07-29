@@ -1,0 +1,646 @@
+.card-primary {
+  border: 1px solid black;
+}
+
+.dataTables_filter {
+  display: none;
+}
+
+.flatpickr {
+  background-color: white;
+}
+
+table {
+  counter-reset: tableCount;
+}
+
+.counterCell::before {
+  counter-increment: tableCount;
+  content: counter(tableCount);
+}
+
+.test {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.styleSO {
+  color: black;
+  background-color: rgb(34, 151, 238);
+  margin-top: 12px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.styleNamabrg {
+  color: black;
+  margin-bottom: 2px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stybuttonList {
+  color: #4b4b4b;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.stybuttonList2 {
+  color: blue;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.styleOrder {
+  color: blue;
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stylePCS {
+  color: rgb(0, 0, 0);
+  margin-bottom: 2px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.styleLokasi {
+  background-color: red;
+  color: white;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* LOKASI */
+.styleGetlokasi1 {
+  /* 1*/
+  background-color: yellow;
+  color: green;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.styleGetlokasi2 {
+  /* 2*/
+  background-color: yellow;
+  color: blue;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.styleGetlokasi3 {
+  /* 3*/
+  background-color: yellow;
+  color: red;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.styleGetlokasi4 {
+  /* 4*/
+  background-color: yellow;
+  color: orange;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.styleGetlokasi5 {
+  /* 5*/
+  background-color: yellow;
+  color: brown;
+  padding-right: 65%;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* DETAIL LOKASI */
+.styleListlokasi1 {
+  /* 1*/
+  color: green;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.styleListlokasi2 {
+  /* 2*/
+  color: blue;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.styleListlokasi3 {
+  /* 3*/
+  color: red;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.styleListlokasi4 {
+  /* 4*/
+  color: orange;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.styleListlokasi5 {
+  /* 5*/
+  color: brown;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.imageIcon {
+  text-align: center;
+}
+
+.imageIcon2 {
+  text-align: center;
+  height: 235px;
+  padding-top: 13px;
+  padding-bottom: 5px;
+  margin: 2px;
+}
+
+.styleButton {
+  padding: 20px 150px 0px 150px;
+  text-align: center;
+  color: lightblue;
+}
+.styleButton31 {
+  text-align: -webkit-center;
+  color: lightblue;
+}
+
+.styleButton2 {
+  padding: 5px 100px 0px 100px;
+  text-align: center;
+  color: lightblue;
+}
+
+.styleButton22 {
+  padding: -20px 100px 0px 100px;
+  text-align: center;
+  color: lightblue;
+}
+
+.styleInput {
+  text-align: center;
+  font-size: 200px;
+  padding: 0px 110px 0px 110px;
+}
+
+.styleInput1 {
+  text-align: center;
+  font-size: 16px;
+  padding: auto;
+}
+
+.styleInput4 {
+  padding-top: -10px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 900;
+  color: black;
+  outline-color: none;
+  outline: none;
+  border: none;
+  text-decoration-line: none;
+}
+
+.styleInput5 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: black;
+  outline-color: none;
+  outline: none;
+  text-decoration-line: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.styleInput2 {
+  text-align: center;
+  color: black;
+  font-size: 15px;
+}
+
+.tengah {
+  text-align: center;
+  margin-top: 26px;
+}
+
+/* input[type=text] {
+	border: 2px solid #bdbdbd;
+	font-family: 'Roboto', Arial, Sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	padding: .5em .75em; */
+/* width: 200px; */
+/* } */
+
+input[type='text']:focus {
+  border: 2px solid #757575;
+  outline: none;
+  outline-color: none;
+  outline: none;
+  border-radius: none;
+  border: none;
+  text-decoration-line: none;
+}
+
+.input1 {
+  border: 2px solid #757575;
+  outline: none;
+  outline-color: none;
+  outline: none;
+  border-radius: none;
+  border: none;
+  text-decoration-line: none;
+}
+
+.colpan {
+  text-align: center;
+}
+
+.autocomplete-suggestions {
+  border: 1px solid #999;
+  background: #f8f8f8;
+  overflow: auto;
+  color: #3399ff;
+}
+
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.autocomplete-selected {
+  background: #b1b1b1;
+}
+
+.autocomplete-suggestions strong {
+  font-weight: normal;
+  color: #3399ff;
+}
+
+.autocomplete-group {
+  padding: 2px 5px;
+}
+
+.autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid #000;
+}
+
+/* ======================================================================= Style Packing */
+
+.styNamaPacking {
+  color: #3399ff;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 3px;
+}
+
+.styText {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 3px;
+}
+
+.styNoPax {
+  color: red;
+  font-weight: 600;
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+
+.styNoPaxAngka {
+  color: red;
+  font-weight: 900;
+  margin-bottom: 3px;
+  font-size: 22px;
+}
+
+.stySisa {
+  color: black;
+  font-size: 45px;
+  font-weight: 900;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.stySisa1 {
+  font-size: 26px;
+}
+
+.styBarcode {
+  text-align: center;
+  font-size: 200px;
+  padding: 30px 50px 0px 50px;
+}
+
+.textInbuond {
+  font-size: 14px;
+}
+
+.styleKolom {
+  background-color: greenyellow;
+}
+
+.jam-container {
+  width: 400px;
+  height: 400px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: rgb(170, 170, 170) 10px solid;
+  color: rgb(34, 151, 238);
+}
+.animate {
+  border: rgb(170, 170, 170) 10px solid;
+  color: rgb(66, 215, 81);
+}
+.jamdigital-frame .jamdigital {
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.atas {
+  font-size: 16px;
+  padding: 20px 150px 0px 0px;
+}
+
+.tengah {
+  font-size: 20px;
+  color: blue;
+  font-weight: 800;
+  text-align: left;
+  margin: 0px 0px 10px 0px;
+}
+
+.bawahKiri {
+  font-size: 20px;
+  background: aquamarine;
+  padding: 5px 30px 5px 30px;
+  color: #000;
+}
+.bawahKiriSatuan {
+  font-size: 20px;
+  font-weight: 900;
+  background: aquamarine;
+  padding: 0px 60px 5px 30px;
+  color: #000;
+}
+
+.bawahKanan {
+  font-size: 20px;
+  padding: 5px 30px 5px 30px;
+  background: greenyellow;
+  color: #000;
+}
+
+.bawahKananSatuan {
+  font-size: 20px;
+  font-weight: 900;
+  padding: 0px 60px 5px 30px;
+  background: greenyellow;
+  color: #000;
+}
+
+.card1 {
+  font-size: 20px;
+  border: none;
+  color: black;
+}
+
+.card2 {
+  border-radius: 20px;
+  width: 25%;
+  margin: 10px;
+  background: #ededed;
+  color: #7b7b7b;
+  border: none;
+  box-shadow: 3px 3px 10px -1px #6d8dada6;
+}
+
+.card3 {
+  border-radius: 20px;
+  width: 25%;
+  margin: 10px;
+  background: #ededed;
+  color: #7b7b7b;
+  border: none;
+  box-shadow: 3px 3px 10px -1px #6d8dada6;
+}
+.card4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  vertical-align: middle;
+  border: none;
+}
+
+.card5 {
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  color: black;
+}
+
+.card6 {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
+
+.card7 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card71 {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+.card77 {
+  border-radius: 20px;
+  width: 100%;
+  margin: 0px;
+  background: #ededed;
+  color: #7b7b7b;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 6px 40px;
+  border: none;
+  box-shadow: 3px 3px 10px -1px #6d8dada6;
+}
+
+.row1 {
+  display: grid;
+  padding: 0px 12px;
+  box-shadow: 2px 4px 0px 2px rgb(215, 215, 215);
+  border-radius: 8px;
+  background: aliceblue;
+}
+
+.row11 {
+  display: grid;
+  padding: 0px 12px;
+  box-shadow: 2px 4px 0px 2px rgb(215, 215, 215);
+  border-radius: 8px;
+  background: greenyellow;
+}
+
+.custom-prompt {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-prompt label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.custom-prompt input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.custom-prompt button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-prompt button:hover {
+  background-color: #45a049;
+}
+
+.gif {
+  height: 45px;
+}
+
+.cardRefLok {
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
+  margin: 0 0 0 0;
+  padding: 0 100px 0 10px;
+  background: antiquewhite;
+  letter-spacing: 11px;
+  width: 290px;
+}
+
+.cardRefStok {
+  font-size: 17px;
+  color: #636363;
+  font-weight: 800;
+  margin: 0 20px 0 0;
+  padding: 0;
+  text-align: end;
+}
+
+.cardTrRef {
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
+  margin: 0 0 0 40px;
+  padding: 0 100px 0 10px;
+  background: antiquewhite;
+  letter-spacing: 11px;
+}
+
+.cardDivRef {
+  display: flex;
+  justify-content: space-between;
+}
+
+.styleStokPicking {
+  font-size: 17px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.stylediv1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.stylecellkarton {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.styleButtonNew {
+  border: none !important;
+}
+
+.notif {
+  font-size: 20px; /* Sesuaikan ukuran ikon */
+  color: #ff0000; /* Sesuaikan warna ikon */
+  cursor: pointer; /* Ubah kursor saat diarahkan ke ikon */
+}
+
+.styleKol {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hidden-input {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Contoh media query untuk perangkat mobile */
+@media screen and (max-width: 480px) {
+  /* Gaya CSS khusus untuk layar dengan lebar maksimum 480px */
+  body {
+    padding-top: 100px;
+    /* font-size: 14px; */
+  }
+}
+
+@media screen and (orientation: landscape) {
+  /* Aturan CSS khusus untuk landscape */
+  body {
+    padding-top: 32px;
+    /* font-size: 14px; */
+  }
+}

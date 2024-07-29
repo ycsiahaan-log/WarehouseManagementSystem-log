@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Nugraha Warehouse",
+  "short_name": "Nugraha Warehouse",
+  "version": "com.ign.apps",
+  "description": "Nugraha Warehouse",
+  "author": "Nugraha Warehouse",
+  "icons": [],
+  "start_url": "index.html"
+}

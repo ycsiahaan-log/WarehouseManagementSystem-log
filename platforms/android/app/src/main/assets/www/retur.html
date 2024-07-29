@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Retur</title>
+
+    <link href="asset/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="asset/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="asset/css/flatpickr.min.css" rel="stylesheet" />
+    <link href="asset/css/nunito.css" rel="stylesheet" />
+    <link href="asset/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- swall -->
+    <link
+      rel="stylesheet"
+      href="./asset/@sweetalert2/theme-material-ui/material-ui.css"
+    />
+    <script src="./asset/sweetalert2/dist/sweetalert2.all.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="asset/sb-admin-2.min.css" rel="stylesheet" />
+    <script src="asset/jquery.min.js"></script>
+    <script src="asset/jquery.easing.min.js"></script>
+    <script src="asset/bootstrap.bundle.min.js"></script>
+    <script src="asset/sb-admin-2.min.js"></script>
+    <script src="asset/moment.js"></script>
+    <script src="asset/custom.js"></script>
+    <script src="asset/bootstrap-select.min.js"></script>
+    <script src="asset/flatpickr.js"></script>
+    <script src="asset/tempus-dominus.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="./API.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+      var getData = [];
+      lokasi = "";
+      kodebrg = "";
+      jumlah = 0;
+      nama = "";
+
+      function onDeviceReady() {
+        document.addEventListener("deviceready", showBarang, false);
+        document.getElementById("desSO1").innerHTML = user;
+        document.getElementById("input2").innerHTML = 0;
+        document.getElementById("input1").focus();
+      }
+      //----------------------------------------------------------------------------------------------------------------------------------------
+      function exeScan() {
+        var jumlah = document.getElementById("input2").value;
+        var nama = document.getElementById("input1").value;
+        var kodebrg = document.getElementById("kodebrg").value;
+        if (kodebrg == 0 || kodebrg == "") {
+          Swal.fire({
+            title: "Oops...",
+            text: "Barang Tidak Ditemukan!",
+            icon: "warning",
+            confirmButtonText: "Back",
+          });
+          clearField();
+          return;
+        }
+        if (jumlah == 0 || jumlah == "") {
+          Swal.fire({
+            title: "Oops...",
+            text: "Isi Field Jumlah !",
+            icon: "warning",
+            confirmButtonText: "Back",
+          });
+          clearField();
+          return;
+        }
+        if (nama == "") {
+          Swal.fire({
+            title: "Oops...",
+            text: "Input Nama Barang !",
+            icon: "warning",
+            confirmButtonText: "Back",
+          });
+          clearField();
+          return;
+        } else {
+          push(nama, jumlah);
+        }
+      }
+      const push = (nama, jml) => {
+        var kodebrg = document.getElementById("kodebrg").value;
+        var lokasi = document.getElementById("lokasi2").value;
+        console.log(lokasi, kodebrg);
+        let dicData = {
+          kodebrg: kodebrg,
+          nm: nama,
+          jml: jml,
+          lokasi: lokasi,
+          operator: user,
+        };
+        getData.push(dicData);
+        console.log(getData);
+        view();
+      };
+
+      const view = () => {
+        const t = document.querySelector("#bodylistBarang");
+        t.innerHTML = "";
+
+        getData.forEach((item, i) => {
+          var row = document.createElement("tr"),
+            div1 = document.createElement("div"),
+            div2 = document.createElement("div"),
+            div3 = document.createElement("div"),
+            cell1 = document.createElement("th"),
+            cell3 = document.createElement("th"),
+            cell5 = document.createElement("th");
+          cell6 = document.createElement("th");
+          cell1.classList.add("card5"),
+            cell3.classList.add("card4"),
+            div1.classList.add("card6");
+          div2.classList.add("card7"), row.classList.add("row1");
+          var idrefil = item.idtemp;
+          cell1.innerHTML = item.nm;
+          cell3.innerHTML = item.lokasi;
+          cell6.innerHTML = `Jml Ambil : ${item.jml}`;
+
+          cell5.innerHTML =
+            "<a onclick='del(" +
+            i +
+            ")' style='font-size:28px;'><i class='far fa-trash-alt' style='color:red'></i></a>";
+          div3.appendChild(cell1),
+            row.appendChild(div3),
+            div1.appendChild(cell3),
+            div1.appendChild(cell6),
+            row.appendChild(div1),
+            div2.appendChild(cell5),
+            row.appendChild(div2),
+            t.appendChild(row);
+        });
+        clearField();
+        return;
+      };
+
+      const clearField = () => {
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+        document.getElementById("nama").innerHTML = "";
+        document.getElementById("lokasi").innerHTML = "";
+        document.getElementById("kodebrg").value = "";
+      };
+
+      const del = (i) => {
+        var nm = getData[i]["nm"];
+        getData.splice(i, 1);
+        Swal.fire({
+          title: "Oops...",
+          text: `${nm} Berhasil Dihapus`,
+          icon: "warning",
+          confirmButtonText: "Back",
+        });
+        view();
+      };
+
+      function cekInput() {
+        if (getData.length == 0) {
+          Swal.fire({
+            title: "Selesai",
+            icon: "success",
+            confirmButtonText: "Ok",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              exeDashboard();
+            }
+          });
+          return;
+        }
+        var strKirim = JSON.stringify(getData);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", UrlApi + "/nug_api/getRetur");
+        xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        xhr.send(JSON.stringify(strKirim));
+        xhr.onload = function () {
+          console.log(this.responseText);
+          var obj = JSON.parse(this.responseText);
+        };
+        Swal.fire({
+          title: "Selesai",
+          icon: "success",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            exeDashboard();
+          }
+        });
+      }
+
+      function exeDashboard() {
+        location.href = "dashboard.html?namalogin=" + user + "&level=" + level;
+      }
+      function exeHome() {
+        location.href = "retur.html?namalogin=" + user + "&level=" + level;
+      }
+
+      function exeBack() {
+        location.href = "dashboard.html?namalogin=" + user + "&level=" + level;
+      }
+
+      function exeRefresh() {
+        //location.href="scan_barang.html?namalogin="+user+"&level="+level
+        document.location.reload(true);
+      }
+    </script>
+  </head>
+
+  <body id="page-top">
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        background-image: linear-gradient(
+          to right,
+          rgb(34, 151, 238),
+          rgb(66, 215, 81)
+        );
+        padding: 16px 0px;
+        box-shadow: 0px 0px 10px 0px rgb(188, 188, 188);
+        align-items: center;
+      "
+    >
+      <div style="width: 100%; display: flex; align-items: center; gap: 12px">
+        <a onclick="exeBack()"
+          ><i
+            class="fas fas fa-arrow-left fa-sm fa-fw m-2 text-white"
+            style="font-size: 25px"
+          ></i
+        ></a>
+        <div>
+          <h5 style="line-height: 20px; color: white">
+            RETUR <a id="desSO"></a>
+          </h5>
+          <h6 style="line-height: 0px; color: white">
+            Hellow <a id="desSO1"></a>
+          </h6>
+        </div>
+      </div>
+      <div>
+        <a class="" data-bs-toggle="dropdown" href="">
+          <i
+            class="fas fa-bars fa-sm fa-fw mr-3 text-white"
+            style="font-size: 28px"
+          ></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" onclick="exeDashboard()">
+              <i class="fas fa-home fa-sm fa-fw m-2 text-black"></i>Dashboard
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="exeHome()">
+              <i
+                class="fas fas fa-clipboard-list fa-sm fa-fw m-2 text-black"
+              ></i
+              >Home
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="exeRefresh()">
+              <i class="fas fa-sync fa-sm fa-fw m-2 text-black"></i>Refresh
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- <i class="fas fa fa-sign-out fa-sm fa-fw mr-3 text-white" style="font-size: 24px;"></i> -->
+    </div>
+
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 30px;
+        padding-bottom: 20px;
+        text-align: left;
+        margin: auto;
+      "
+    >
+      <div
+        style="
+          box-shadow: 2px 6px 10px 2px rgb(215, 215, 215);
+          border-radius: 8px;
+        "
+      >
+        <div>
+          <div class="card-body">
+            <div class="table-responsive-md">
+              <label
+                for="input1"
+                class="form-label font-weight-bold text-primary"
+                style="font-size: 18px"
+                >Info Barang:
+              </label>
+              <div>
+                <p
+                  id="nama"
+                  style="
+                    font-size: 17px;
+                    color: #636363;
+                    font-weight: 800;
+                    margin: 0 20px 0 0;
+                    padding: 0;
+                    text-align: start;
+                  "
+                ></p>
+                <p
+                  id="lokasi"
+                  style="
+                    font-size: 17px;
+                    color: #636363;
+                    font-weight: 800;
+                    margin: 0 20px 0 0;
+                    padding: 0;
+                    text-align: start;
+                  "
+                ></p>
+                <p
+                  id="kodebrg"
+                  style="
+                    font-size: 17px;
+                    color: #636363;
+                    font-weight: 800;
+                    margin: 0 20px 0 0;
+                    padding: 0;
+                    text-align: start;
+                  "
+                  hidden
+                ></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 0 25px; text-align: center">
+      <input
+        type="text"
+        class="form-control"
+        id="input1"
+        placeholder="Scan Barcode / Search Nama Barang"
+        name="input1"
+        style="text-align: center"
+      />
+      <input
+        type="text"
+        class="form-control"
+        id="kodebrg"
+        placeholder="Scan Barcode / Search Nama Barang"
+        name="kodebrg"
+        style="text-align: center"
+        hidden
+      />
+      <input
+        type="text"
+        class="form-control"
+        id="lokasi2"
+        placeholder="Scan Barcode / Search Nama Barang"
+        name="lokasi2"
+        style="text-align: center"
+        hidden
+      />
+    </div>
+    <div style="text-align: center">
+      <label
+        for="input2"
+        style="
+          font-size: 17px;
+          font-weight: 800;
+          color: Black;
+          padding-top: 5px;
+        "
+        >Input Jumlah</label
+      >
+      <input
+        type="tel"
+        id="input2"
+        name="input2"
+        class="styleInput4"
+        style="width: 100%"
+      />
+    </div>
+    <div style="justify-content: center">
+      <div style="display: flex; width: 100%; justify-content: center">
+        <button
+          onclick="cekInput()"
+          type="button"
+          id="simpanLokasi"
+          class="btn btn-primary btn-m"
+          style="
+            border-radius: 20px;
+            width: 30%;
+            margin: 14px;
+            background: #ededed;
+            color: #7b7b7b;
+            font-weight: 900;
+            border: none;
+            box-shadow: 3px 3px 10px -1px #6d8dada6;
+          "
+        >
+          Simpan
+        </button>
+        <button
+          onclick="exeScan()"
+          type="button"
+          id="simpanLokasi"
+          class="btn btn-primary btn-m"
+          style="
+            border-radius: 20px;
+            width: 30%;
+            margin: 14px;
+            background: #ededed;
+            color: #7b7b7b;
+            font-weight: 900;
+            border: none;
+            box-shadow: 3px 3px 10px -1px #6d8dada6;
+          "
+        >
+          Tambah
+        </button>
+      </div>
+    </div>
+    <div style="border: none; text-align: -webkit-center">
+      <table id="listBarang" style="width: 100%">
+        <thead></thead>
+        <tbody
+          id="bodylistBarang"
+          style="display: grid; padding: 0 10px; gap: 14px"
+        ></tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    // Menggunakan JavaScript untuk menangani event focus
+    document.getElementById("input2").addEventListener("focus", function () {
+      // Mengatur nilai input menjadi 0
+      this.value = "";
+    });
+    document.getElementById("input2").addEventListener("blur", function () {
+      if (this.value === "") {
+        this.value = "0";
+      }
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      // let cariCus = document.getElementById("namaCus").value;
+      $("#input1").autocomplete({
+        serviceUrl: UrlApi + "/nug_api/getBarangOrBarcodeAutoCom", // Kode php untuk prosesing data
+        dataType: "JSON", // Tipe data JSON
+        onSelect: function (suggestion) {
+          $("#input1").val("" + suggestion.value);
+          $("#kodebrg").val("" + suggestion.data);
+          $("#lokasi2").val("" + suggestion.lokasi);
+          document.getElementById("nama").innerHTML = suggestion.value;
+          document.getElementById("lokasi").innerHTML = suggestion.lokasi;
+          console.log(suggestion.lokasi);
+        },
+      });
+    });
+  </script>
+</html>

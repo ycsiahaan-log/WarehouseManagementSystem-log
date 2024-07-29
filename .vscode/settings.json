@@ -1,0 +1,10 @@
+{
+  "editor.fontSize": 12,
+  "files.autoSave": "off",
+  "editor.inlineSuggest.fontFamily": "fira code",
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.preferredDarkColorTheme": "Default Dark Modern",
+  "workbench.preferredHighContrastColorTheme": "Default High Contrast",
+  "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
+  "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace"
+}
